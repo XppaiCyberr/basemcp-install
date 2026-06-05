@@ -7,16 +7,9 @@ A step-by-step guide to connect the [Base MCP server](https://mcp.base.org/) wit
 - [opencode](https://opencode.ai) installed
 - A [Base Account](https://base.org/account) (smart wallet) — required for authentication and transactions
 
-## Step 1: Create the project directory
+## Step 1: Configure the MCP server
 
-```bash
-mkdir my-base-mcp-project
-cd my-base-mcp-project
-```
-
-## Step 2: Configure the MCP server
-
-Create `opencode.json` in the project root:
+Create `opencode.json` in your project root (or use an existing one):
 
 ```jsonc
 {
@@ -30,7 +23,7 @@ Create `opencode.json` in the project root:
 }
 ```
 
-## Step 3: Authenticate with your Base Account
+## Step 2: Authenticate with your Base Account
 
 Run the authentication command:
 
@@ -50,7 +43,7 @@ You should see the `base` server listed with a status of `connected` or `authent
 
 > **Note:** Base MCP uses [x402](https://x402.org) — a pay-per-request protocol. Some requests (e.g., swaps, sends) may require a micro-payment in USDC on Base. The agent will prompt you for approval when needed.
 
-## Step 4: Start using Base MCP
+## Step 3: Start using Base MCP
 
 Once authenticated, the AI agent can use tools like:
 
