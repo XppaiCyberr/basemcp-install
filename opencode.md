@@ -32,19 +32,23 @@ Create `opencode.json` in the project root:
 
 ## Step 3: Authenticate with your Base Account
 
-Open the project in opencode:
+Run the authentication command:
 
 ```bash
-opencode
+opencode mcp auth base
 ```
 
-The first time the AI agent tries to use a Base MCP tool (e.g., sending tokens or checking a wallet), it will prompt you to approve a connection in your **Base Account** (https://base.org/account).
+This will open a browser to sign in to your **Base Account** (https://base.org/account) and approve the OAuth session.
 
-1. Follow the approval URL provided by the agent
-2. Sign in to your Base Account
-3. Approve the session
+Verify the connection:
 
-> **Note:** Base MCP uses [x402](https://x402.org) — a pay-per-request protocol. Some requests (e.g., swaps, sends) may require a micro-payment in USDC on Base. The AI agent will prompt you for approval when needed.
+```bash
+opencode mcp list
+```
+
+You should see the `base` server listed with a status of `connected` or `authenticated`.
+
+> **Note:** Base MCP uses [x402](https://x402.org) — a pay-per-request protocol. Some requests (e.g., swaps, sends) may require a micro-payment in USDC on Base. The agent will prompt you for approval when needed.
 
 ## Step 4: Start using Base MCP
 
@@ -65,7 +69,7 @@ Once authenticated, the AI agent can use tools like:
 | `Connection refused` | Ensure `https://mcp.base.org/` is accessible from your network |
 | `x402 payment required` | The agent will provide an approval URL — open it in your Base Account |
 | `Tool not found` | Verify `opencode.json` has the correct config and restart opencode |
-| `Session expired` | Re-approve the connection in your Base Account |
+| `Session expired` | Re-authenticate with `opencode mcp auth base`, or first run `opencode mcp logout base` to clear stale credentials |
 
 ## Full example `opencode.json`
 
